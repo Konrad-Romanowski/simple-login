@@ -1,4 +1,4 @@
-import { db } from "../db.js";
+import { db } from "../../db.js";
 
 export function getUser(req,res) {
     const q = 'SELECT * FROM users WHERE user_id = ?';

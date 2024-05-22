@@ -1,4 +1,4 @@
-import { db } from "../db.js";
+import { db } from "../../db.js";
 import bcrypt from "bcryptjs";
 
 export function createUser(req,res) {
