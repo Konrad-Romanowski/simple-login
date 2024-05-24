@@ -25,6 +25,5 @@ export function createUser(req,res) {
                 return res.status(200).json({success: true, message: 'User has been created!'});
             }
         });
-        return res.status(200).json({success: true, message: 'User has been created!'});
     });
 }
