@@ -10,11 +10,11 @@ export function login(req,res) {
 
     const q = 'SELECT * FROM users WHERE `username` = ?'
     db.query(q,[username],(err,data) => {
-        if(err) console.log(err);
+        if(err) return res.status(500).json({success: false, message: err.message});
 
         if(!data.length) return res.status(401).json({success: false, message: "Wrong username or password."});
         bcrypt.compare(password,data[0].password,(err,comparisonResult)=>{
-            if(err) console.log(err);
+            if(err) return res.status(500).json({success: false, message: err.message});
             if(!comparisonResult) return res.status(401).json({success: false, message: "Wrong username or password."});
 
             const userData = {

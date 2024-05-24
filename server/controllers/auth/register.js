@@ -20,7 +20,7 @@ export function createUser(req,res) {
                
         db.query(q,[values],(err,data)=>{
             if(err) {
-                console.log(err)
+                return res.status(500).json({success: false, message: err.message});
             } else {
                 return res.status(200).json({success: true, message: 'User has been created!'});
             }
