@@ -1,6 +1,7 @@
 import {
     createBrowserRouter,
     createRoutesFromElements,
+    redirect,
     Route,
     RouterProvider
 } from 'react-router-dom';
@@ -15,7 +16,10 @@ import Protected from './pages/Protected';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/">
+        <Route
+            path="/"
+            errorElement={<Error />} 
+        >
             <Route element={<Layout />} loader={layoutLoader}>
                 <Route index element={<Home />} />
                 <Route
@@ -27,20 +31,21 @@ const router = createBrowserRouter(
                     path="user/:id"
                     element={<User />}
                     loader={userLoader}
-                    errorElement={<Error />}
                 />
             </Route>
             <Route
                 path="/login"
                 element={<Login />}
-                errorElement={<Error />}
                 action={loginAction}
             />
             <Route
                 path="/register"
                 element={<Register />}
-                errorElement={<Error />}
                 action={registerAction}
+            />
+            <Route 
+                path="*"
+                loader={()=>redirect('/')}
             />
         </Route>
     )

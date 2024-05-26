@@ -84,13 +84,11 @@ section > p {
     text-align: center;
 }
 
-.login-container a,
-.register-container a {
+a {
     text-decoration: none;
 }
 
-.login-container a:hover > span,
-.register-container a:hover > span {
+a:hover > span {
     text-decoration: underline;
 }
 
