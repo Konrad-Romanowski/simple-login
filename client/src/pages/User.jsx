@@ -22,17 +22,17 @@ export default function User() {
         }
         return (
             <section>
-                {userContext.id === user.id ? 
+                {userContext?.id === user.id ? 
                     <h1>Hello {user.username}!</h1> : 
-                    <h1>{user.username}</h1> 
+                    <h1>{user.username}</h1>
                 }
                 <h2>Profile settings</h2>
                 <section className='profile'>
                     <div className='profile-item'><b>Username: </b><span>{user.username}</span></div>
-                    {userContext.id === user.id && <div className='profile-item'><b>Email: </b><span>{user.email}</span></div>}
+                    {userContext?.id === user.id && <div className='profile-item'><b>Email: </b><span>{user.email}</span></div>}
                     <div className='profile-item'><b>Profile picture: </b><span>{user.profilePic}</span></div>
                 </section>
-                {userContext.id === user.id && <button>Edit profile</button>}
+                {userContext?.id === user.id && <button>Edit profile</button>}
             </section>
         )
     }
