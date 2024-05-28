@@ -21,12 +21,11 @@ export default function User() {
             return <section><h2>User not found!</h2></section>
         }
         return (
-            <section>
+            <section className='user-container'>
                 {userContext?.id === user.id ? 
                     <h1>Hello {user.username}!</h1> : 
                     <h1>{user.username}</h1>
                 }
-                <h2>Profile settings</h2>
                 <section className='profile'>
                     <div className='profile-item'><b>Username: </b><span>{user.username}</span></div>
                     {userContext?.id === user.id && <div className='profile-item'><b>Email: </b><span>{user.email}</span></div>}
