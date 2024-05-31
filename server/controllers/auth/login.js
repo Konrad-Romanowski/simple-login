@@ -25,7 +25,16 @@ export function login(req,res) {
             }
             // CREATE AND SEND TOKEN
             const accessToken = jwt.sign(userData,process.env.ACCESS_TOKEN_SECRET_KEY || "YOUR_SECRET_KEY_HERE");
-            res.cookie('simple-login-access-cookie',accessToken,{httpOnly: true, sameSite: 'none', secure: true}).status(200).json({success: true, message: "Logged in!", user: userData})
+            res.cookie(
+                'simple-login-access-cookie',
+                accessToken,
+                {
+                    httpOnly: true,
+                    sameSite: 'none',
+                    secure: true,
+                    maxAge: 1000 * 60 * 60 * 24 * 365 * 100
+                }
+            ).status(200).json({success: true, message: "Logged in!", user: userData});
         });
     })
 }
