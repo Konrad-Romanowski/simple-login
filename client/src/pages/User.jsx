@@ -1,5 +1,6 @@
 import React from 'react';
-import { Await, defer, Form, useLoaderData, useOutletContext } from "react-router-dom";
+import { Await, defer, useLoaderData, useOutletContext } from "react-router-dom";
+import UpdateUserForm from '../components/UpdateUserForm';
 
 export async function loader({params}) {
     try {
@@ -14,25 +15,32 @@ export async function loader({params}) {
 export default function User() {
     const userContext = useOutletContext();
     const loaderData = useLoaderData();
-
+    
+    const [isModalOn,setIsModalOn] = React.useState(false);
+    // const isModalOn = React.useRef(true);
+    // console.log(isModalOn)
+    
     function renderContent(loadedUser) {
         const user = loadedUser.user;
         if(!loadedUser.success) {
             return <section><h2>User not found!</h2></section>
         }
         return (
-            <section className='user-container'>
-                {userContext?.id === user.id ? 
-                    <h1>Hello {user.username}!</h1> : 
-                    <h1>{user.username}</h1>
-                }
-                <section className='profile'>
-                    <div className='profile-item'><b>Username: </b><span>{user.username}</span></div>
-                    {userContext?.id === user.id && <div className='profile-item'><b>Email: </b><span>{user.email}</span></div>}
-                    <div className='profile-item'><b>Profile picture: </b><span>{user.profilePic}</span></div>
+            <>
+                <section className='user-container'>
+                    {userContext?.id === user.id ? 
+                        <h1>Hello {user.username}!</h1> : 
+                        <h1>{user.username}</h1>
+                    }
+                    <section className='profile'>
+                        <div className='profile-item'><b>Username: </b><span>{user.username}</span></div>
+                        {userContext?.id === user.id && <div className='profile-item'><b>Email: </b><span>{user.email}</span></div>}
+                        <div className='profile-item'><b>Profile picture: </b><span>{user.profilePic}</span></div>
+                    </section>
+                    {userContext?.id === user.id && <button onClick={()=>setIsModalOn(true)}>Edit profile</button>}
                 </section>
-                {userContext?.id === user.id && <button>Edit profile</button>}
-            </section>
+                <UpdateUserForm isModalOn={isModalOn} setIsModalOn={setIsModalOn} />  
+            </>
         )
     }
     
