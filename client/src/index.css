@@ -93,7 +93,8 @@ a:hover > span {
 }
 
 .login-container > form,
-.register-container > form {
+.register-container > form,
+.update-user-container > form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -105,7 +106,8 @@ a:hover > span {
 }
 
 .login-container input,
-.register-container input {
+.register-container input,
+.update-user-container input {
     width: 80%;
     line-height: 2rem;
     font-size: 1rem;
@@ -192,28 +194,14 @@ section > button:hover {
 .profile-item > span {
     font-style: italic;
 }
-
-section.update-user {
+ 
+section.update-user-container {
     position: absolute;
     background-color: #122944;
-    border-radius: 3px;
-    padding: 3rem 2rem;
+    padding: 0;
 }
 
-.update-user div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    width: 80%;
-}
-
-.update-user label {
-    font-size: 0.75rem;
-    display: inline-block;
-    /* margin-bottom: 4px; */
-}
-
-.update-user > .close-button {
+.update-user-container > .close-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -224,24 +212,4 @@ section.update-user {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.update-user > form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    min-width: 320px;
-    align-items: center;
-}
-
-.update-user input {
-    /* width: 80%; */
-    line-height: 2rem;
-    font-size: 1rem;
-    text-indent: .5rem;
-    background-color: transparent;
-    /* border: none; */
-    border: 1px solid #f7f7f7;
-    border-radius: 2px;
-    /* outline: 1px solid limegreen; */
 }

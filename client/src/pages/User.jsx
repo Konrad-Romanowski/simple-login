@@ -1,6 +1,6 @@
 import React from 'react';
 import { Await, defer, useLoaderData, useOutletContext } from "react-router-dom";
-import UpdateUserForm from '../components/UpdateUserForm';
+import UpdateUserForm from '../components/UpdateUserModal';
 
 export async function loader({params}) {
     try {
@@ -14,11 +14,8 @@ export async function loader({params}) {
 
 export default function User() {
     const userContext = useOutletContext();
-    const loaderData = useLoaderData();
-    
+    const loaderData = useLoaderData();    
     const [isModalOn,setIsModalOn] = React.useState(false);
-    // const isModalOn = React.useRef(true);
-    // console.log(isModalOn)
     
     function renderContent(loadedUser) {
         const user = loadedUser.user;
