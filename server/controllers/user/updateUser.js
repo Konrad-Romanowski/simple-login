@@ -7,7 +7,7 @@ dotenv.config();
 export function updateUser(req,res) {
     const {id, username, email,profilePic} = req.body;
 
-    const q = 'SELECT * FROM `users` WHERE `username` = ? OR `email` = ? AND user_id != ?'
+    const q = 'SELECT * FROM `users` WHERE (`username` = ? OR `email` = ?) AND user_id != ?'
     db.query(q,[username,email,id],(err,data) => {
         if(err) return res.status(500).json({success: false, message: err.message});
         
