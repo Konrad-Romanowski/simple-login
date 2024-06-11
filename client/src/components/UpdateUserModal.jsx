@@ -3,8 +3,8 @@ import {useOutletContext} from 'react-router-dom';
 
 
 export default function UpdateUserModal({isModalOn, setIsModalOn}) {
-    const user = useOutletContext();
-    const [updatedUser,setUpdatedUser] = React.useState(user);
+    const userContext = useOutletContext();
+    const [updatedUser,setUpdatedUser] = React.useState(userContext.user);
     const [apiResponse,setApiResponse] = React.useState({success: false, message: ""});
     const modalStyle = {
         display: isModalOn ? "block" : "none"
@@ -13,7 +13,7 @@ export default function UpdateUserModal({isModalOn, setIsModalOn}) {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:3000/user/${user.id}`,{
+            const response = await fetch(`http://localhost:3000/user/${userContext.user.id}`,{
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ export default function UpdateUserModal({isModalOn, setIsModalOn}) {
             }
             localStorage.setItem("#simple-login-user",JSON.stringify(data.user));
             setIsModalOn(false);
-            // REFRESH THE PAGE TO REFLECT UPDATED DATA
+            userContext.setUser(data.user);
         } catch(err) {
             throw Error(err);
         }
