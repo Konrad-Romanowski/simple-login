@@ -93,7 +93,8 @@ a:hover > span {
 }
 
 .login-container > form,
-.register-container > form {
+.register-container > form,
+.update-user-container > form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -105,7 +106,8 @@ a:hover > span {
 }
 
 .login-container input,
-.register-container input {
+.register-container input,
+.update-user-container input {
     width: 80%;
     line-height: 2rem;
     font-size: 1rem;
@@ -191,4 +193,23 @@ section > button:hover {
 
 .profile-item > span {
     font-style: italic;
+}
+ 
+section.update-user-container {
+    position: absolute;
+    background-color: #122944;
+    padding: 0;
+}
+
+.update-user-container > .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

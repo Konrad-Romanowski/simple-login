@@ -13,7 +13,7 @@ export default function Layout() {
     return (
         <>
             <Navbar user={user} setUser={setUser} />
-            <Outlet context={user}/>
+            <Outlet context={{user, setUser}}/>
         </>
     )
 }
