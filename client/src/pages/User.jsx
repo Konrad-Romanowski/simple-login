@@ -25,16 +25,16 @@ export default function User() {
         return (
             <>
                 <section className='user-container'>
-                    {userContext?.user.id === user.id ? 
-                        <h1>Hello {userContext.user.username}!</h1> : 
+                    {userContext.user?.id === user.id ? 
+                        <h1>Hello {userContext.user?.username}!</h1> : 
                         <h1>{user.username}</h1>
                     }
                     <section className='profile'>
-                        <div className='profile-item'><b>Username: </b><span>{userContext.user.username}</span></div>
-                        {userContext?.user.id === user.id && <div className='profile-item'><b>Email: </b><span>{userContext.user.email}</span></div>}
-                        <div className='profile-item'><b>Profile picture: </b><span>{userContext.user.profilePic}</span></div>
+                        <div className='profile-item'><b>Username: </b><span>{user.username}</span></div>
+                        {userContext.user?.id === user.id && <div className='profile-item'><b>Email: </b><span>{userContext.user.email}</span></div>}
+                        <div className='profile-item'><b>Profile picture: </b><span>{user.profilePic}</span></div>
                     </section>
-                    {userContext?.user.id === user.id && <button onClick={()=>setIsModalOn(true)}>Edit profile</button>}
+                    {userContext.user?.id === user.id && <button onClick={()=>setIsModalOn(true)}>Edit profile</button>}
                 </section>
                 <UpdateUserForm isModalOn={isModalOn} setIsModalOn={setIsModalOn} />  
             </>

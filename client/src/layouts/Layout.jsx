@@ -9,7 +9,6 @@ export function loader() {
 
 export default function Layout() {
     const [user, setUser] = useState(useLoaderData());
-
     return (
         <>
             <Navbar user={user} setUser={setUser} />

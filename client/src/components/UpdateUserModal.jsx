@@ -45,14 +45,14 @@ export default function UpdateUserModal({isModalOn, setIsModalOn}) {
                     type="text"
                     placeholder='Enter new username...'
                     name="username"
-                    value={updatedUser.username}
+                    value={updatedUser?.username}
                     onChange={handleChange}
                 />
                 <input 
                     type="email"
                     placeholder='Enter new email...'
                     name="email"
-                    value={updatedUser.email}
+                    value={updatedUser?.email}
                     onChange={handleChange}
                 />
                 <p className={`form-alert ${apiResponse?.success ? "green" : null}`}>{apiResponse?.message}</p>
