@@ -36,10 +36,15 @@ export default function UpdateUserModal({isModalOn, setIsModalOn}) {
         const {name, value} = e.target;
         setUpdatedUser(prevState => ({...prevState, [name]: value}))
     }
+
+    function handleCloseButton() {
+        setIsModalOn(false);
+        setUpdatedUser(userContext.user);
+    }
     
     return (
         <section className='update-user-container' style={modalStyle} >
-            <button className='close-button' onClick={()=>setIsModalOn(false)}>X</button>
+            <button className='close-button' onClick={handleCloseButton}>X</button>
             <form onSubmit={handleSubmit} method='PUT'>
                 <input 
                     type="text"
