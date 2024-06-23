@@ -46,20 +46,28 @@ export default function UpdateUserModal({isModalOn, setIsModalOn}) {
         <section className='update-user-container' style={modalStyle} >
             <button className='close-button' onClick={handleCloseButton}>X</button>
             <form onSubmit={handleSubmit} method='PUT'>
-                <input 
-                    type="text"
-                    placeholder='Enter new username...'
-                    name="username"
-                    value={updatedUser?.username}
-                    onChange={handleChange}
-                />
-                <input 
-                    type="email"
-                    placeholder='Enter new email...'
-                    name="email"
-                    value={updatedUser?.email}
-                    onChange={handleChange}
-                />
+                <div className="form-item">
+                    <label htmlFor="update-user-username">Username</label>
+                    <input
+                        id="update-user-username"
+                        type="text"
+                        placeholder='Enter new username...'
+                        name="username"
+                        value={updatedUser?.username}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className='form-item'>
+                    <label htmlFor="update-user-email">Email</label>
+                    <input 
+                        id="update-user-email"
+                        type="email"
+                        placeholder='Enter new email...'
+                        name="email"
+                        value={updatedUser?.email}
+                        onChange={handleChange}
+                    />
+                </div>
                 <p className={`form-alert ${apiResponse?.success ? "green" : null}`}>{apiResponse?.message}</p>
                 <button className='update-user-button'>Update</button>
             </form>

@@ -212,3 +212,16 @@ section.update-user-container {
     align-items: center;
     justify-content: center;
 }
+
+.form-item {
+    width: 80%;
+}
+
+.form-item > label {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+}
+
+.form-item > input {
+    width: 100%;
+}
